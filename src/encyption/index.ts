@@ -13,21 +13,26 @@ export default class Encryption {
    * @param salt salt
    * @returns hashed password
    */
-   public static createPasswordhash = async (password: string, salt: string): Promise<string> => {
-    const processResult = child_process.spawnSync("php", {
-      input: Encryption.createPhpScript(password, salt, Config.PASSWORD_HASH_SETTINGS)
-    });
+  public static createPasswordhash = async (password: string, salt: string): Promise<string> => {
+    try {
+      const processResult = child_process.spawnSync("php", {
+        input: Encryption.createPhpScript(password, salt, Config.PASSWORD_HASH_SETTINGS)
+      });
 
-    if (processResult.error) {
-      throw new Error("Failed to create password hash");
-    }
+      if (processResult.error) {
+        throw new Error("Failed to create password hash");
+      }
 
-    const result = JSON.parse(processResult.stdout.toString());
-    if (!result.hash) {
-      throw new Error("Failed to create password hash");
+      const result = JSON.parse(processResult.stdout.toString());
+      if (!result.hash) {
+        throw new Error("Failed to create password hash");
+      }
+      
+      return result.hash;
+    } catch (e) {
+      console.error("Failed to create password hash", e);
+      throw e;
     }
-    
-    return result.hash;
   }
 
   /**
