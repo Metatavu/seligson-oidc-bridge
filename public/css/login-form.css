@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+body {
+  background-image: url("/login-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #5d6a26;
+  width: 90vw;
+  padding: 0;
+  margin: 0;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.error-container {
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+
+.logo-container {
+  display: flex; 
+}
+
+.logo {
+  max-width: 300px;
+}
+
+.header-container {
+  border: 0,5px solid;
+  border-image: linear-gradient(#D2D6AB, rgba(210, 214, 171, 0)) 27 / 1px;
+  padding: 0 25vw;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  text-align: center;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin: 10px;
+}
+
+.form-field-container {
+  padding: 10px;
+  display: flex;
+  width: 80vw;
+}
+
+.form-field-container input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #828282;
+  box-sizing: border-box;
+  border-radius: 24px;
+  background: white;
+}
+
+.submit-container input {
+  color: #899C35;
+}
+
+footer {
+  text-align: center;
+  margin-top: 50px;
+  color: #fff;
+  font-size: 14px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+}
+
+.internal-error {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  align-content: space-around;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+.internal-error p {
+  text-align: center;
+  color: #fff;
+}
+
+.consent-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-grow: 1;
+  align-content: space-around;
+  justify-content: space-around;
+  color: #fff;
+}
+
+.consent-header {
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.consent-details-container {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.consent-form ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.consent-form li {
+  list-style: none;  
+}
+
+.consent-form .form-field-container {
+  width: auto;
+}
