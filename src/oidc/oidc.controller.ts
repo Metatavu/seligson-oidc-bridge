@@ -115,6 +115,7 @@ export class OidcController {
           if (!accountId) {
             return res.render(name, { uid: uid, strings: strings, error: strings.wrongUsernameOrPasswordError });
           }
+          
           const result = {
             login: {
               remember: false,
@@ -122,11 +123,9 @@ export class OidcController {
             },
           };
 
-          const vinaali = await this.oidc.interactionFinished(req, res, result, {
+          return await this.oidc.interactionFinished(req, res, result, {
             mergeWithLastSubmission: false
           });
-
-          return vinaali;
         } catch(e) {
           return res.render(name, { uid: uid, strings: strings, error: e });
         }
