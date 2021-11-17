@@ -62,7 +62,7 @@ export default class Encryption {
       $password = urldecode("${encodeURIComponent(password)}");
       $random = base64_decode(urldecode("${encodeURIComponent(random)}"));
       $random = substr(str_replace(array('$', "\0"), array('', ''), $random), 0, 16);
-      $prefix = urldecode("${encodeURIComponent(prefix)}");
+      $prefix = urldecode("${prefix}");
       $postfix = '$';
       $hash = substr(crypt($password, $prefix . $random . $postfix), strlen($prefix . $postfix) + strlen($random));
       echo json_encode(["hash" => $hash]);
