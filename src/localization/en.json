@@ -14,7 +14,7 @@
   "loggingOutHeader": "Logging out...",
   "loggingOutText": "Redirecting forward automatically. If nothing happens, you can proceed by pressing 'Continue'.",
   "loggingOutButton": "Continue",
-  "internalErrorMessage": "There was an error while logging in, it may have taken too long to log in, or there was an internal error, please try again.",
+  "internalErrorMessage": "There was an error while logging in. It may have taken too long to log in, or there was an internal error. Please try again.",
   "internalErrorInstructions": "If the problem persists, contact your system administrator",
   "internalErrorDetails": "Technical error:"
 }
