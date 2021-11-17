@@ -14,7 +14,7 @@
   "loggingOutHeader": "Kirjaudutaan ulos...",
   "loggingOutText": "Siirrytään automaattisesti eteenpäin. Mikäli mitään ei tapahdu, voit jatkaa klikkaamalla alla olevaa painiketta.",
   "loggingOutButton": "Jatka",
-  "internalErrorMessage": "Kirjautumisessa tapahtui virhe, mahdollisesti kirjautuminen kesti liian kauan tai järjestelmässä tapahtui sisäinen virhe, olkaa hyvä ja yrittäkää uudelleen.",
+  "internalErrorMessage": "Kirjautumisessa tapahtui virhe. Kirjautuminen kesti mahdollisesti liian kauan tai järjestelmässä tapahtui sisäinen virhe. Olkaa hyvä ja yrittäkää uudelleen.",
   "internalErrorInstructions": "Jos ongelma toistuu ottakaa yhteyttä järjestelmän ylläpitoon",
   "internalErrorDetails": "Tekninen virhe:"
 
