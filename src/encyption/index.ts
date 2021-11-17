@@ -15,8 +15,10 @@ export default class Encryption {
    */
   public static createPasswordhash = async (password: string, salt: string): Promise<string> => {
     try {
+      const script = Encryption.createPhpScript(password, salt, Config.PASSWORD_HASH_SETTINGS);
+      
       const processResult = child_process.spawnSync("php", {
-        input: Encryption.createPhpScript(password, salt, Config.PASSWORD_HASH_SETTINGS)
+        input: script
       });
 
       if (processResult.error) {
@@ -32,7 +34,12 @@ export default class Encryption {
 
         return result.hash;
       } catch (e) {
-        console.error("Failed to process password hash output", output, e);
+        console.error("Failed to process password hash output", {
+          script: script,
+          output: output,
+          error: e
+        });
+        
         throw e;
       };
     } catch (e) {
