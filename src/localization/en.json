@@ -12,7 +12,7 @@
   "wrongUsernameOrPasswordError": "Wrong username or password",
   "footerText": "Seligson &amp; Co on LähiTapiola ryhmän rahastoyhtiö.",
   "loggingOutHeader": "Logging out...",
-  "loggingOutText": "Moving forward automatically, You can also proceed by clicking 'continue' -button",
+  "loggingOutText": "Redirecting forward automatically. If nothing happens, you can proceed by pressing 'Continue'.",
   "loggingOutButton": "Continue",
   "internalErrorMessage": "There was an error while logging in, it may have taken too long to log in, or there was an internal error, please try again.",
   "internalErrorInstructions": "If the problem persists, contact your system administrator",
