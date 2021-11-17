@@ -35,7 +35,6 @@ export default class Encryption {
         return result.hash;
       } catch (e) {
         console.error("Failed to process password hash output", {
-          script: script,
           output: output,
           error: e
         });
