@@ -23,12 +23,18 @@ export default class Encryption {
         throw new Error("Failed to create password hash");
       }
 
-      const result = JSON.parse(processResult.stdout.toString());
-      if (!result.hash) {
-        throw new Error("Failed to create password hash");
-      }
-      
-      return result.hash;
+      const output = processResult.stdout.toString();
+      try {
+        const result = JSON.parse(output);
+        if (!result.hash) {
+          throw new Error("Failed to create password hash");
+        }
+
+        return result.hash;
+      } catch (e) {
+        console.error("Failed to process password hash output", output, e);
+        throw e;
+      };
     } catch (e) {
       console.error("Failed to create password hash", e);
       throw e;
