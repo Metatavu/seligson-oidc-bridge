@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/css/login-form.css" rel="stylesheet" />
+    <title>{{ strings.name }}</title>
+  </head>
+  <body>
+    <div class="consent-form">
+      <div class="consent-container">
+        <div class="consent-details-container">
+          <p class="consent-header">{{ strings.system }} {{ client.clientId }} {{ strings.requiredInformations }}:</p>
+          <ul>
+            <li>{{ strings.email }}: {{ claims.email }}</li>
+            <li>{{ strings.givenName }}: {{ claims.given_name }} {{ claims.family_name }}</li>
+          </ul>
+        </div>
+        <form class="form-container" autocomplete="off" action="/oidc/interaction/{{ uid }}" method="post">        
+          <div class="form-field-container submit-container">
+            <input autofocus type="submit" class="login login-submit" value="{{ strings.confirm }}" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
