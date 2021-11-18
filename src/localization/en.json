@@ -10,7 +10,7 @@
   "requiredInformations": " will be given following information",
   "missingCredentialsError": "Missing username or password",
   "wrongUsernameOrPasswordError": "Wrong username or password",
-  "footerText": "Seligson &amp; Co on LähiTapiola ryhmän rahastoyhtiö.",
+  "footerText": "Seligson & Co on LähiTapiola ryhmän rahastoyhtiö.",
   "loggingOutHeader": "Logging out...",
   "loggingOutText": "Redirecting forward automatically. If nothing happens, you can proceed by pressing 'Continue'.",
   "loggingOutButton": "Continue",
