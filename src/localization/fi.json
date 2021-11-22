@@ -1,5 +1,6 @@
 {
   "givenName": "Nimi",
+  "ssn": "Henkilötunnus",
   "confirm": "Hyväksy",
   "email": "Sähköposti",
   "password": "Salasana",

@@ -1,5 +1,6 @@
 {
   "email": "Email",
+  "ssn": "Social security number",
   "login": "Login",
   "system": "System ",
   "givenName": "Name",

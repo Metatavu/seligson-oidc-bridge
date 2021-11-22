@@ -36,14 +36,15 @@ export default class Account {
       
       return {
         accountId: id,
-        async claims() {          
+        async claims() {
           return {
             email_verified: true,
             sub: id,
             email: addressRah.EMAIL,
             phone: addressRah.PHONE,
             given_name: companyRah.FIRST_NAME,
-            family_name: companyRah.LAST_NAME
+            family_name: companyRah.LAST_NAME,
+            ssn: companyRah.SO_SEC_NR
           };
         },
       };
@@ -81,7 +82,7 @@ export default class Account {
 
     const hash = await Encryption.createPasswordhash(password, userAccount.random);
     if (hash != userAccount.hash) {
-      console.warn("Password did not match");
+      console.warn("Password did not match", hash, userAccount.hash);
       return Promise.reject(strings.wrongUsernameOrPasswordError);
     }
 

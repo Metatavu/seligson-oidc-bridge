@@ -65,7 +65,8 @@ export class OidcController {
       },
       claims: {
         email: ['email', 'email_verified'],
-        profile: ['family_name', 'given_name', 'name']
+        profile: ['family_name', 'given_name'],
+        ssn: ['ssn']
       },
       cookies: {
         keys: [Config.COOKIE_SECRET],
@@ -195,7 +196,7 @@ export class OidcController {
           return;
         }
 
-        const claims = await account.claims(name, "profile email", {email: null, profile: null}, []);
+        const claims = await account.claims(name, "profile email ssn", {email: null, profile: null, ssn: null}, []);
         
         return res.render(name, {
           params,

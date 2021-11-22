@@ -15,6 +15,7 @@
           <ul>
             <li>{{ strings.email }}: {{ claims.email }}</li>
             <li>{{ strings.givenName }}: {{ claims.given_name }} {{ claims.family_name }}</li>
+            <li>{{ strings.ssn }}: {{ claims.ssn }}</li>
           </ul>
         </div>
         <form class="form-container" autocomplete="off" action="/oidc/interaction/{{ uid }}" method="post">        
