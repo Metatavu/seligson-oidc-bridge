@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
 
 body {
-  background-image: url(/login-background.png);
+  background-image: url("/login-background.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #5d6a26;
