@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
 
 body {
-  background-image: url("/login-background.png");
+  background-image: url(/login-background.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #5d6a26;
-  width: 90vw;
-  padding: 0;
+  min-height: 100vh;
   margin: 0;
+  display: flex;
   font-family: 'Noto Sans', sans-serif;
 }
 
@@ -21,28 +21,38 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  min-height: 100vh;
+  padding: 20px;
+  width: 100%;
+  background-color: rgb(0,0,0,0.1);
+}
+
+.form-content {
+  width: 100%
 }
 
 .logo-container {
-  display: flex; 
+  display: flex;
+  height: 45vh;
 }
 
 .logo {
-  max-width: 300px;
+  max-width: 75vw;
 }
 
 .header-container {
-  border: 0,5px solid;
-  border-image: linear-gradient(#D2D6AB, rgba(210, 214, 171, 0)) 27 / 1px;
-  padding: 0 25vw;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #fff;
+  border-right: none;
+  border-left: none;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 h1 {
   font-style: normal;
   font-weight: bold;
-  font-size: 26px;
+  font-size: 20px;
   text-align: center;
   color: #FFFFFF;
   text-transform: uppercase;
@@ -50,32 +60,35 @@ h1 {
 }
 
 .form-field-container {
-  padding: 10px;
-  display: flex;
-  width: 80vw;
+  margin-top: 10px;
+  flex: 1;
+  width: 100%;
 }
 
 .form-field-container input {
   width: 100%;
   padding: 10px 15px;
-  border: 1px solid #828282;
+  border: 1px solid #899C35;
   box-sizing: border-box;
   border-radius: 24px;
-  background: white;
+  background: rgb(255 255 255 / 90%);
 }
 
 .submit-container input {
-  color: #899C35;
+  color: #fff;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 10px;
+  background-color: #899c35;
+  border: 1px solid white;
+  box-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
 }
 
 footer {
   text-align: center;
-  margin-top: 50px;
   color: #fff;
   font-size: 14px;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-bottom: 20px;
   flex: 1;
   display: flex;
   justify-content: flex-end;

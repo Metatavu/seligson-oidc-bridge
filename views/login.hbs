@@ -15,7 +15,7 @@
       <div class="header-container">
         <h1>{{ strings.name }}</h1>
       </div>      
-      <form autocomplete="off" action="/oidc/interaction/{{ uid }}" method="post">
+      <form class="form-content" autocomplete="off" action="/oidc/interaction/{{ uid }}" method="post">
         {{#if error}}
         <div class="error-container"><p>{{ error }}</p></div>
         {{/if}}
