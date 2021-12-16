@@ -1,0 +1,22 @@
+{
+  "givenName": "Nimi",
+  "ssn": "Henkilötunnus",
+  "confirm": "Hyväksy",
+  "email": "Sähköposti",
+  "password": "Salasana",
+  "login": "Kirjaudu sisään",
+  "system": "Järjestelmälle ",
+  "name": "Kirjaudu",
+  "username": "Käyttäjätunnus",
+  "requiredInformations": " annetaan seuraavat tiedot",
+  "missingCredentialsError": "Käyttäjätunnus tai salasana puuttuu",
+  "wrongUsernameOrPasswordError": "Väärä käyttäjätunnus tai salasana",
+  "footerText": "Seligson & Co on LähiTapiola ryhmän rahastoyhtiö.",
+  "loggingOutHeader": "Kirjaudutaan ulos...",
+  "loggingOutText": "Siirrytään automaattisesti eteenpäin. Mikäli mitään ei tapahdu, voit jatkaa klikkaamalla alla olevaa painiketta.",
+  "loggingOutButton": "Jatka",
+  "internalErrorMessage": "Kirjautumisessa tapahtui virhe. Kirjautuminen kesti mahdollisesti liian kauan tai järjestelmässä tapahtui sisäinen virhe. Olkaa hyvä ja yrittäkää uudelleen.",
+  "internalErrorInstructions": "Jos ongelma toistuu, ottakaa yhteyttä järjestelmän ylläpitoon.",
+  "internalErrorDetails": "Tekninen virhe:"
+
+}

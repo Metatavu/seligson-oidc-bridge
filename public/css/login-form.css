@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+body {
+  background-image: url("/login-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #5d6a26;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.error-container {
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  background-color: rgb(0,0,0,0.1);
+}
+
+.form-content {
+  width: 100%
+}
+
+.logo-container {
+  display: flex;
+  height: 45vh;
+}
+
+.logo {
+  max-width: 75vw;
+}
+
+.header-container {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #fff;
+  border-right: none;
+  border-left: none;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin: 10px;
+}
+
+.form-field-container {
+  margin-top: 10px;
+  flex: 1;
+  width: 100%;
+}
+
+.form-field-container input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #899C35;
+  box-sizing: border-box;
+  border-radius: 24px;
+  background: rgb(255 255 255 / 90%);
+}
+
+.submit-container input {
+  color: #fff;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 10px;
+  background-color: #899c35;
+  border: 1px solid white;
+  box-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
+}
+
+footer {
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.internal-error {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  align-content: space-around;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+.internal-error p {
+  text-align: center;
+  color: #fff;
+}
+
+.consent-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-grow: 1;
+  align-content: space-around;
+  justify-content: space-around;
+  color: #fff;
+}
+
+.consent-header {
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.consent-details-container {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.consent-form ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.consent-form li {
+  list-style: none;  
+}
+
+.consent-form .form-field-container {
+  width: auto;
+}
