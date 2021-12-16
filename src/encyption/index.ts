@@ -16,6 +16,10 @@ export default class Encryption {
   public static createPasswordhash = async (password: string, salt: string): Promise<string> => {
     try {
       const script = Encryption.createPhpScript(password, salt, Config.PASSWORD_HASH_SETTINGS);
+
+      if (Config.DEBUG) {
+        console.log("Create password script", script);
+      }
       
       const processResult = child_process.spawnSync("php", {
         input: script
