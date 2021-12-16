@@ -17,5 +17,5 @@ export default cleanEnv(process.env, {
   PASSWORD_HASH_SETTINGS: str(),
   COOKIE_SECRET: str(),
   COOKIE_MAX_AGE: num(),
-  DEBUG: bool()
+  DEBUG: bool({default: false})
 });
