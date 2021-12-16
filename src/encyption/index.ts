@@ -63,7 +63,7 @@ export default class Encryption {
     return `
       <?php
       $password = urldecode("${encodeURIComponent(password)}");
-      $random = urldecode("${encodeURIComponent(random)}");
+      $random = base64_decode(urldecode("${encodeURIComponent(random)}"));
       $random = substr(str_replace(array('$', "\0"), array('', ''), $random), 0, 16);
       $prefix = urldecode("${prefix}");
       $postfix = '$';
