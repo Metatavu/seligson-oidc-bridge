@@ -1,4 +1,5 @@
-import Encryption from "src/encyption";
+import Config from "../config";
+import Encryption from "../encyption";
 import Database from "../database";
 import { strings } from "../localization/strings";
 
@@ -73,6 +74,10 @@ export default class Account {
     if (!userAccount || !userAccount.id) {
       console.warn("User account not found");
       return Promise.reject(strings.wrongUsernameOrPasswordError);
+    } 
+    
+    if (Config.DEBUG) {
+      console.warn(`User ${username} logging in...`);
     }
 
     if (!userAccount.random) {
