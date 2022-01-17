@@ -83,9 +83,11 @@ export default class Account {
     }
 
     const random = userAccount?.random || FALLBACK_RANDOM;
-    const hash = await Encryption.createPasswordhash(password, random);
-    if (!userAccount || hash != userAccount.hash) {
-      console.warn("Password did not match", hash, userAccount.hash);
+    const expectedHash = userAccount?.hash;
+    const calculatedHash = await Encryption.createPasswordhash(password, random);
+
+    if (!expectedHash || calculatedHash != expectedHash) {
+      console.warn("Invalid login");
       return Promise.reject(strings.wrongUsernameOrPasswordError);
     }
 
