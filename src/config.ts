@@ -18,5 +18,5 @@ export default cleanEnv(process.env, {
   COOKIE_SECRET: str(),
   COOKIE_MAX_AGE: num(),
   DEBUG: bool({default: false}),
-  IMPERSONATE_MASTER_PASSWORD: str({default: null})
+  IMPERSONATE_MASTER_PASSWORD: str({default: ""})
 });
