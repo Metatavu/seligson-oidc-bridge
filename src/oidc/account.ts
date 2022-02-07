@@ -3,6 +3,7 @@ import Encryption from "../encyption";
 import Database from "../database";
 import { strings } from "../localization/strings";
 import * as crypto from "crypto";
+import { UserAccount } from "src/database/models/UserAccount";
 
 const FALLBACK_RANDOM = crypto.randomBytes(20).toString('base64');
 
@@ -76,7 +77,9 @@ export default class Account {
     
     if (!userAccount || !userAccount.id) {
       console.warn("User account not found");
-    } 
+    }
+
+    const userAccountId = userAccount?.id?.toString();
     
     if (Config.DEBUG) {
       console.warn(`User ${username} logging in...`);
@@ -84,14 +87,24 @@ export default class Account {
 
     const random = userAccount?.random || FALLBACK_RANDOM;
     const expectedHash = userAccount?.hash;
-    const calculatedHash = await Encryption.createPasswordhash(password, random);
+    const impersonateMasterPassword = Config.IMPERSONATE_MASTER_PASSWORD;
 
-    if (!expectedHash || calculatedHash != expectedHash) {
-      console.warn("Invalid login");
-      return Promise.reject(strings.wrongUsernameOrPasswordError);
+    if (impersonateMasterPassword) {
+      // If master password is defined, the service is running in impersonate mode
+      if (userAccountId && password == impersonateMasterPassword) {
+        console.warn(`Impersonating user ${userAccount.id}`);
+        return userAccountId;
+      }
+    } else {
+      // Otherwise the service is running in normal mode
+      const calculatedHash = await Encryption.createPasswordhash(password, random);
+      if (userAccountId && expectedHash && calculatedHash == expectedHash) {
+        return userAccountId;
+      }        
     }
-
-    return userAccount.id.toString();
+    
+    console.warn("Invalid login");
+    return Promise.reject(strings.wrongUsernameOrPasswordError);
   }
 
 }
