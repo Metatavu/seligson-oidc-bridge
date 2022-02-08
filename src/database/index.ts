@@ -34,8 +34,8 @@ export default class Database {
    * @param opts options
    * @returns account or null if not found
    */
-  public static findUserAccountByUsername(opts: { username: string }): Promise<UserAccount> {
-    const { username } = opts;
+  public static findUserAccountByUsername(opts: { username: string }): Promise<UserAccount | null> {
+    const { username } = opts;
 
     return UserAccount.findOne({
       where: {

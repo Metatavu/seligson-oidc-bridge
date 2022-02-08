@@ -1,6 +1,11 @@
-import Encryption from "src/encyption";
+import Config from "../config";
+import Encryption from "../encyption";
 import Database from "../database";
 import { strings } from "../localization/strings";
+import * as crypto from "crypto";
+import { UserAccount } from "src/database/models/UserAccount";
+
+const FALLBACK_RANDOM = crypto.randomBytes(20).toString('base64');
 
 /**
  * Account handler. 
@@ -17,19 +22,19 @@ export default class Account {
   static async findAccount(_ctx: any, id: string): Promise<any> {
     try {
       const userAccount = await Database.findUserAccountById({ id: parseInt(id) });
-      if (!userAccount) {
+      if (!userAccount) {
         console.warn("Account not found");
         return undefined;
       }
 
       const companyRah = await Database.findCompanyRahByComCode({ comCode: userAccount.comCode });
-      if (!companyRah) {
+      if (!companyRah) {
         console.warn("Company not found for an account");
         return undefined;
       }
 
       const addressRah = await Database.findAddressRahByComCode({ comCode: userAccount.comCode });
-      if (!addressRah) {
+      if (!addressRah) {
         console.warn("Address not found for an account");
         return undefined;
       }
@@ -72,21 +77,34 @@ export default class Account {
     
     if (!userAccount || !userAccount.id) {
       console.warn("User account not found");
-      return Promise.reject(strings.wrongUsernameOrPasswordError);
     }
 
-    if (!userAccount.random) {
-      console.warn("User account random not found");
-      return Promise.reject(strings.wrongUsernameOrPasswordError);
+    const userAccountId = userAccount?.id?.toString();
+    
+    if (Config.DEBUG) {
+      console.warn(`User ${username} logging in...`);
     }
 
-    const hash = await Encryption.createPasswordhash(password, userAccount.random);
-    if (hash != userAccount.hash) {
-      console.warn("Password did not match", hash, userAccount.hash);
-      return Promise.reject(strings.wrongUsernameOrPasswordError);
-    }
+    const random = userAccount?.random || FALLBACK_RANDOM;
+    const expectedHash = userAccount?.hash;
+    const impersonateMasterPassword = Config.IMPERSONATE_MASTER_PASSWORD;
 
-    return userAccount.id.toString();
+    if (impersonateMasterPassword) {
+      // If master password is defined, the service is running in impersonate mode
+      if (userAccountId && password == impersonateMasterPassword) {
+        console.warn(`Impersonating user ${userAccount.id}`);
+        return userAccountId;
+      }
+    } else {
+      // Otherwise the service is running in normal mode
+      const calculatedHash = await Encryption.createPasswordhash(password, random);
+      if (userAccountId && expectedHash && calculatedHash == expectedHash) {
+        return userAccountId;
+      }        
+    }
+    
+    console.warn("Invalid login");
+    return Promise.reject(strings.wrongUsernameOrPasswordError);
   }
 
 }
