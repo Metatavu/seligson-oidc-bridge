@@ -11,7 +11,7 @@
   "requiredInformations": " annetaan seuraavat tiedot",
   "missingCredentialsError": "Käyttäjätunnus tai salasana puuttuu",
   "wrongUsernameOrPasswordError": "Väärä käyttäjätunnus tai salasana",
-  "footerText": "Seligson & Co on LähiTapiola ryhmän rahastoyhtiö.",
+  "footerText": "Seligson & Co on LähiTapiola-ryhmään kuuluva rahastoyhtiö.",
   "loggingOutHeader": "Kirjaudutaan ulos...",
   "loggingOutText": "Siirrytään automaattisesti eteenpäin. Mikäli mitään ei tapahdu, voit jatkaa klikkaamalla alla olevaa painiketta.",
   "loggingOutButton": "Jatka",
