@@ -49,7 +49,8 @@ export default class Account {
             phone: addressRah.PHONE,
             given_name: companyRah.FIRST_NAME,
             family_name: companyRah.LAST_NAME,
-            ssn: companyRah.SO_SEC_NR
+            ssn: companyRah.SO_SEC_NR,
+            preferred_username: userAccount.userName
           };
         },
       };
