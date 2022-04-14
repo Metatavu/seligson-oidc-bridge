@@ -65,7 +65,7 @@ export class OidcController {
       },
       claims: {
         email: ['email', 'email_verified'],
-        profile: ['family_name', 'given_name'],
+        profile: ['family_name', 'given_name', 'preferred_username'],
         ssn: ['ssn']
       },
       cookies: {
