@@ -3,7 +3,7 @@ import Encryption from "../encyption";
 import Database from "../database";
 import { strings } from "../localization/strings";
 import * as crypto from "crypto";
-import { UserAccount } from "src/database/models/UserAccount";
+import { COMPANYrah } from "src/database/models/COMPANYrah";
 
 const FALLBACK_RANDOM = crypto.randomBytes(20).toString('base64');
 
@@ -47,8 +47,8 @@ export default class Account {
             sub: id,
             email: addressRah.EMAIL,
             phone: addressRah.PHONE,
-            given_name: companyRah.FIRST_NAME,
-            family_name: companyRah.LAST_NAME,
+            given_name: Account.getFirstName(companyRah),
+            family_name: Account.getLastName(companyRah),
             ssn: companyRah.SO_SEC_NR,
             preferred_username: userAccount.userName
           };
@@ -106,6 +106,54 @@ export default class Account {
     
     console.warn("Invalid login");
     return Promise.reject(strings.wrongUsernameOrPasswordError);
+  }
+
+  /**
+   * Returns whether given company belongs to a company or person
+   * 
+   * @param companyRah company object
+   * @returns whether given company belongs to a company or person
+   */
+  private static isCompanyAccount(companyRah: COMPANYrah): boolean {
+    return companyRah.SO_SEC_NR?.length != 11;
+  }
+
+  /**
+   * Resolves user's first name from company object
+   * 
+   * @param companyRah company object
+   * @returns user's first name
+   */
+  private static getFirstName = (companyRah: COMPANYrah): string => {
+    const firstName = companyRah.FIRST_NAME;
+    if (firstName) {
+      return firstName;
+    }
+
+    if (Account.isCompanyAccount(companyRah)) {
+      return "Company";
+    } else {
+      return "Unknown";
+    }    
+  }
+
+  /**
+   * Resolves user's last name from company object
+   * 
+   * @param companyRah company object
+   * @returns user's last name
+   */
+  private static getLastName = (companyRah: COMPANYrah): string => {
+    const lastName = companyRah.LAST_NAME;
+    if (lastName) {
+      return lastName;
+    }
+
+    if (Account.isCompanyAccount(companyRah)) {
+      return companyRah.NAME1 || "Unknown";
+    } else {
+      return "Unknown";
+    }
   }
 
 }

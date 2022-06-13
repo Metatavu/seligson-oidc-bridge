@@ -64,8 +64,31 @@ services:
       REDIS_URL: redis
       REDIS_PORT: 6379
       PASSWORD_HASH_SETTINGS: ${PASSWORD_HASH_SETTINGS}
-    
 
+  oidc-bridge-impersonate:
+    build: .
+    ports:
+      - 4444:4444
+    volumes:
+      - ./jwks.json:/opt/jwks.json
+    hostname: impersonate
+    environment:
+      SERVER_URL: http://impersonate
+      SERVER_PORT: 4444
+      DATABASE_URL: mariadb://test:test@mariadb:3306/test
+      JWKS_KEY_FILE_PATH: /opt/jwks.json
+      CLIENT_ID: ${IMPERSONATE_CLIENT_ID}
+      CLIENT_SECRET: ${IMPERSONATE_CLIENT_SECRET}
+      CLIENT_REDIRECT_URL: ${IMPERSONATE_CLIENT_REDIRECT_URL}
+      CLIENT_POST_LOGOUT_REDIRECT_URL: ${IMPERSONATE_CLIENT_POST_LOGOUT_REDIRECT_URL}
+      USE_PROXY: "true"
+      COOKIE_SECRET: ${COOKIE_SECRET}
+      COOKIE_MAX_AGE: "300000"
+      REDIS_URL: redis
+      REDIS_PORT: 6379
+      PASSWORD_HASH_SETTINGS: ${PASSWORD_HASH_SETTINGS}
+      IMPERSONATE_MASTER_PASSWORD: ${IMPERSONATE_MASTER_PASSWORD}
+  
 volumes:
   mariadb_data: {}
   mysqldb_data: {}

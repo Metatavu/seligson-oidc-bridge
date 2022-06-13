@@ -6,8 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="/css/login-form.css" rel="stylesheet" />
     <title>{{ strings.name }}</title>
+    <script type="text/javascript">
+      function onPageLoad() {
+        setTimeout(function() {
+          document.getElementsByClassName("login-submit")[0].click();
+        }, 10);
+      }
+    </script>
   </head>
-  <body>
+  <body onload="onPageLoad()" style="opacity: 0">
     <div class="consent-form">
       <div class="consent-container">
         <div class="consent-details-container">
