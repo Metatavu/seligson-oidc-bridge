@@ -83,8 +83,8 @@ export class OidcController {
       clients: [{
         client_id: Config.CLIENT_ID,
         client_secret: Config.CLIENT_SECRET,
-        redirect_uris: [Config.CLIENT_REDIRECT_URL],
-        post_logout_redirect_uris: [Config.CLIENT_POST_LOGOUT_REDIRECT_URL]
+        redirect_uris: Config.CLIENT_REDIRECT_URL.split(","),
+        post_logout_redirect_uris: Config.CLIENT_POST_LOGOUT_REDIRECT_URL.split(",")
       }],
       findAccount: Account.findAccount
     };
