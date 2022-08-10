@@ -27,6 +27,12 @@ export class OidcController {
 
     strings.setLanguage("fi");
 
+    const redirectUris = Config.CLIENT_REDIRECT_URL.split(",");
+    const postLogoutRedirectUris = Config.CLIENT_POST_LOGOUT_REDIRECT_URL.split(",");
+
+    this.logger.log(`Configured redirect URIs: ${redirectUris}`);
+    this.logger.log(`Configured post logout URIs: ${postLogoutRedirectUris}`);
+
     this.configuration = {
       adapter: RedisAdapter,
       
@@ -83,8 +89,8 @@ export class OidcController {
       clients: [{
         client_id: Config.CLIENT_ID,
         client_secret: Config.CLIENT_SECRET,
-        redirect_uris: Config.CLIENT_REDIRECT_URL.split(","),
-        post_logout_redirect_uris: Config.CLIENT_POST_LOGOUT_REDIRECT_URL.split(",")
+        redirect_uris: redirectUris,
+        post_logout_redirect_uris: postLogoutRedirectUris
       }],
       findAccount: Account.findAccount
     };
