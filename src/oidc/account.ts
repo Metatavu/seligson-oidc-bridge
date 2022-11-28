@@ -81,11 +81,6 @@ export default class Account {
     }
 
     const userAccountId = userAccount?.id?.toString();
-    
-    if (Config.DEBUG) {
-      console.warn(`User ${username} logging in...`);
-    }
-
     const random = userAccount?.random || FALLBACK_RANDOM;
     const expectedHash = userAccount?.hash;
     const impersonateMasterPassword = Config.IMPERSONATE_MASTER_PASSWORD;
